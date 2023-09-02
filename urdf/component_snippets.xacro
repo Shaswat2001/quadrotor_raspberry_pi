@@ -54,7 +54,9 @@
           <geometry>
             <mesh filename="package://quadrotor_sim/meshes/cam_link.STL" />
           </geometry>
-          <material name="red" />
+          <material name="red">
+            <color rgba="0.8 0.0 0.0 1.0"/>
+          </material>
         </visual>
       </xacro:if>
       <inertial>
