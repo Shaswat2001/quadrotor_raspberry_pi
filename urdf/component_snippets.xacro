@@ -52,7 +52,7 @@
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
-            <mesh filename="package://quadrotor_sim/meshes/cam_link.STL" />
+            <mesh filename="/home/shaswatgarg/quadROS/src/quadrotor_sim/meshes/cam_link.STL" />
           </geometry>
           <material name="red">
             <color rgba="0.8 0.0 0.0 1.0"/>

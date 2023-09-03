@@ -1,10 +1,9 @@
+import os
 from launch import LaunchDescription
-from launch.conditions import IfCondition
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
+from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable
 from launch_ros.actions import Node
-from launch_ros.descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
+from ament_index_python.packages import get_package_share_directory
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
@@ -12,7 +11,6 @@ def generate_launch_description():
     base_rviz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([FindPackageShare('quadrotor_sim'), '/launch', '/rviz_launch.py']),
         launch_arguments={
-        'ign_args' : "-r -v 3 empty.sdf"
         }.items(),
         )
 
