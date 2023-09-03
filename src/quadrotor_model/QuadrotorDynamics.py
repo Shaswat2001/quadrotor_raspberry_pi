@@ -7,7 +7,7 @@ class Quadrotor:
 
         # robot parameters
         self.num_motors = 4 # number of motors on the vehicle
-        self.mass = 0.506 # total mass of the vehicle, kg
+        self.mass = 1.65 # total mass of the vehicle, kg
         self.Ixx = 8.11858e-5  # mass-moment of inertial about x-axis, kg-m^2
         self.Iyy = 8.11858e-5  # mass-moment of inertial about y-axis, kg-m^2
         self.Izz = 6.12233e-5 # mass-moment of inertial about z-axis, kg-m^2
