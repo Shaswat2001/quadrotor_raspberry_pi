@@ -1,10 +1,11 @@
 from launch import LaunchDescription
 from launch.conditions import IfCondition
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
 
@@ -47,12 +48,14 @@ def generate_launch_description():
         package="joint_state_publisher_gui",
         executable="joint_state_publisher_gui",
     )
+
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
         output="both",
         parameters=[robot_description],
     )
+    
     rviz_node = Node(
         condition=IfCondition(use_rviz),
         package="rviz2",
@@ -61,11 +64,28 @@ def generate_launch_description():
         output="log",
         arguments=["-d", rviz_config_file],
     )
+    
+    # launch_gazebo_arg = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([FindPackageShare('ros_ign_gazebo'), '/launch', '/ign_gazebo.launch.py']),
+    #     launch_arguments={
+    #     # 'ign_args' : [FindPackageShare(description_package), "world", "empty.world"]
+    #     }.items(),
+    #     )
+
+
+    # gazebo_node = Node(
+    #         package='ros_ign_gazebo',
+    #         executable='create',
+    #         output='screen',
+    #         arguments=["-param", "robot_description", "-name", "quadrotor"]
+    # )
 
     nodes_to_start = [
+        # launch_gazebo_arg,
         joint_state_publisher_node,
         robot_state_publisher_node,
         rviz_node,
+        # gazebo_node
     ]
 
     return LaunchDescription(declared_param_list + nodes_to_start)
