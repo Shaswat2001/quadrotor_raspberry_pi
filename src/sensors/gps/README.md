@@ -1,3 +1,5 @@
+# GPS sensor setup
+
 For this demo, we are using NEO-7M satellite positoning module GPS. To communicate with the GPS, we have to follow the following steps - 
 
 ## Enabling UART communication protocol
@@ -18,7 +20,7 @@ sudo nano /boot/firmware/cmdline.txt
 
 From the file, remove ```console=serial0,115200``` parameter (This parameter configures the OS to output messages at baud rate of 115200 to the serial console).
 
-Following that, we need to disable the serial-getty service. To disable it, run the follwing commands in the terminal, where ```<tty_service>``` is either ```ttys0``` or ```ttyAMA0```. 
+Following that, we need to disable the serial-getty service. To disable it, run the follwing commands in the terminal, where ```<tty_service>``` is either ```ttyS0``` or ```ttyAMA0```. 
 
 ```
 sudo systemctl stop serial-getty@<tty_service>.service
@@ -26,10 +28,10 @@ sudo systemctl disable serial-getty@<tty_service>.service
 sudo systemctl mask serial-getty@<tty_service>.service
 ```
 
-Then enable the ```ttys0``` service, 
+Then enable the ```ttyS0``` service, 
 
 ```
-sudo systemctl enable serial-getty@ttys0.service
+sudo systemctl enable serial-getty@ttyS0.service
 ```
 
 Finally, to access the serial port, your user needs to have the necessary permissions. Run the following commands, replacing ```<your_username>``` with your actual username:
@@ -44,6 +46,8 @@ Then just reboot the raspberry pi -
 ```
 sudo reboot
 ```
+
+To get information related to serial ports run, ```sudo dmesg | grep tty```
 
 ## Connecting GPS module to raspberry PI
 
