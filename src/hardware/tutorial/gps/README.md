@@ -57,6 +57,4 @@ Make the following connections between GPS and raspberry PI -
 * RX to Pin 8, which is TX (GPIO14)
 * Gnd to Pin 6, which is ground
 
-To test the connection, run the ```gps.py``` script. 
-
 
