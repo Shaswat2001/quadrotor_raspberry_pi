@@ -12,7 +12,7 @@ There are several ways in which they can be connected.
 
 ### Method 2. Serial connection using GPIO
 
-![USB connection](https://github.com/Shaswat2001/quadrotor_raspberry_pi/blob/main/resources/raspberrypi_arduino_uart.png?raw=true)
+![GPIO connection](https://github.com/Shaswat2001/quadrotor_raspberry_pi/blob/main/resources/raspberrypi_arduino_uart.png?raw=true)
 
 Since, arduino UNO operates at 5V and raspberry pi operates at 3.3V, a **3.3V/5V level-shifter** is needed to protect the raspberry. 
 
