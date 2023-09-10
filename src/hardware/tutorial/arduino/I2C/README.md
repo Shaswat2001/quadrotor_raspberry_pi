@@ -31,7 +31,3 @@ Then just reboot the raspberry pi -
 sudo reboot
 ```
 
-## Communication code 
-
-Upload the code ```arduino_uart.ino``` in the arduino UNO. Once done, connect raspberry with arduino UNO using USB. To test the serial communication, run ```raspberry.py``` on Pi. If the communication is successful, you should have ```You sent me: Hello from Raspberry Pi!``` as output. 
-
