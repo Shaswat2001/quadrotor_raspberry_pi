@@ -5,4 +5,6 @@ In this tutorial, we are going to use UART communication protocol for serial com
 
 There are several ways in which they can be connected. 
 
-### Method 1. 
+### Method 1. Direction connection with USB
+
+![Alt text](resources/raspberrypi_arduino_uno_uart_usb.png)
